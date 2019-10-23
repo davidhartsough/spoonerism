@@ -69,11 +69,14 @@ button {
   margin-bottom: 1rem;
   min-width: 8rem;
   flex: 0 0 8rem;
+  border: 1px solid #80deea;
+  background: rgba(224, 247, 250, 0.5);
 }
 button:hover,
 button:active,
 button:focus {
-  border-color: rgba(0, 0, 0, 0.4);
+  background: rgba(224, 247, 250, 0.7);
+  border-color: #00bcd4;
 }
 #output {
   margin: 0 0 1rem;

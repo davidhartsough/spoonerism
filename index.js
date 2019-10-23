@@ -13,21 +13,17 @@ function spoonerize(wordOne, wordTwo) {
   const firstLetterWordTwo = wordTwo.charAt(0);
   const firstLetterWordOneIsVowel = isVowel(firstLetterWordOne);
   const firstLetterWordTwoIsVowel = isVowel(firstLetterWordTwo);
-  const ogBeginningOfWordOne =
-    firstLetterWordOneIsVowel === isVowel(wordOne.charAt(1))
-      ? wordOne.substr(0, 2)
-      : firstLetterWordOne;
-  const ogBeginningOfWordTwo =
-    firstLetterWordTwoIsVowel === isVowel(wordTwo.charAt(1))
-      ? wordTwo.substr(0, 2)
-      : firstLetterWordTwo;
+  const ogBeginningOfWordOne = firstLetterWordOneIsVowel === isVowel(wordOne.charAt(1))
+    ? wordOne.substr(0, 2)
+    : firstLetterWordOne;
+  const ogBeginningOfWordTwo = firstLetterWordTwoIsVowel === isVowel(wordTwo.charAt(1))
+    ? wordTwo.substr(0, 2)
+    : firstLetterWordTwo;
   let newWordOne = wordOne;
   let newWordTwo = wordTwo;
   if (firstLetterWordOneIsVowel === firstLetterWordTwoIsVowel) {
-    newWordOne =
-      ogBeginningOfWordTwo + newWordOne.substr(ogBeginningOfWordOne.length);
-    newWordTwo =
-      ogBeginningOfWordOne + newWordTwo.substr(ogBeginningOfWordTwo.length);
+    newWordOne = ogBeginningOfWordTwo + newWordOne.substr(ogBeginningOfWordOne.length);
+    newWordTwo = ogBeginningOfWordOne + newWordTwo.substr(ogBeginningOfWordTwo.length);
   } else if (firstLetterWordOneIsVowel) {
     newWordOne = ogBeginningOfWordTwo + newWordOne.toLowerCase();
     newWordTwo = newWordTwo.substr(ogBeginningOfWordTwo.length);
@@ -66,13 +62,10 @@ const examples = [
   "wage rate",
   "lighting fire",
   "oiled bicycle",
-  "busy dean",
   "cozy nook",
   "missed history",
-  "down train",
   "wasted term",
   "Sleeping Beauty",
-  "dirty lies",
   "guinea pig",
   "President Reagan",
   "picking leaders",
@@ -93,7 +86,14 @@ const examples = [
   "Harry Potter",
   "Frodo Baggins",
   "Fleetwood Mac",
-  "Bob Marley"
+  "Bob Marley",
+  "Tube Lime",
+  "Cuba tape",
+  "band honk",
+  "Randy Savage",
+  "born hugging",
+  "booming loner",
+  "house mat"
 ];
 function getRandomSuggestion() {
   inputElement.value = examples[Math.floor(Math.random() * examples.length)];

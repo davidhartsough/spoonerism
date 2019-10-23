@@ -9,36 +9,30 @@ function isVowel(character) {
 }
 
 function spoonerize(wordOne, wordTwo) {
-  let newWordOne = wordOne;
-  let newWordTwo = wordTwo;
-  const firstAndSecondLetterWordOne = wordOne.substr(0, 2);
-  const firstAndSecondLetterWordTwo = wordTwo.substr(0, 2);
   const firstLetterWordOne = wordOne.charAt(0);
-  const secondLetterWordOne = wordOne.charAt(1);
   const firstLetterWordTwo = wordTwo.charAt(0);
-  const secondLetterWordTwo = wordTwo.charAt(1);
   const firstLetterWordOneIsVowel = isVowel(firstLetterWordOne);
-  const secondLetterWordOneIsVowel = isVowel(secondLetterWordOne);
   const firstLetterWordTwoIsVowel = isVowel(firstLetterWordTwo);
-  const secondLetterWordTwoIsVowel = isVowel(secondLetterWordTwo);
   const ogBeginningOfWordOne =
-    firstLetterWordOneIsVowel === secondLetterWordOneIsVowel
-      ? firstAndSecondLetterWordOne
+    firstLetterWordOneIsVowel === isVowel(wordOne.charAt(1))
+      ? wordOne.substr(0, 2)
       : firstLetterWordOne;
   const ogBeginningOfWordTwo =
-    firstLetterWordTwoIsVowel === secondLetterWordTwoIsVowel
-      ? firstAndSecondLetterWordTwo
+    firstLetterWordTwoIsVowel === isVowel(wordTwo.charAt(1))
+      ? wordTwo.substr(0, 2)
       : firstLetterWordTwo;
+  let newWordOne = wordOne;
+  let newWordTwo = wordTwo;
   if (firstLetterWordOneIsVowel === firstLetterWordTwoIsVowel) {
     newWordOne =
       ogBeginningOfWordTwo + newWordOne.substr(ogBeginningOfWordOne.length);
     newWordTwo =
       ogBeginningOfWordOne + newWordTwo.substr(ogBeginningOfWordTwo.length);
   } else if (firstLetterWordOneIsVowel) {
-    newWordOne = ogBeginningOfWordTwo + newWordOne;
+    newWordOne = ogBeginningOfWordTwo + newWordOne.toLowerCase();
     newWordTwo = newWordTwo.substr(ogBeginningOfWordTwo.length);
   } else if (firstLetterWordTwoIsVowel) {
-    newWordTwo = ogBeginningOfWordOne + newWordTwo;
+    newWordTwo = ogBeginningOfWordOne + newWordTwo.toLowerCase();
     newWordOne = newWordOne.substr(ogBeginningOfWordOne.length);
   }
   return newWordOne + " " + newWordTwo;
@@ -63,3 +57,46 @@ inputElement.addEventListener("keyup", ({ keyCode }) => {
     handleClick();
   }
 });
+
+const examples = [
+  "William Spooner",
+  "Mark Wahlberg",
+  "Mark Zuckerberg",
+  "loving shepherd",
+  "wage rate",
+  "lighting fire",
+  "oiled bicycle",
+  "busy dean",
+  "cozy nook",
+  "missed history",
+  "down train",
+  "wasted term",
+  "Sleeping Beauty",
+  "dirty lies",
+  "guinea pig",
+  "President Reagan",
+  "picking leaders",
+  "Snooping Putin",
+  "keeping parrots",
+  "pheasant pluck",
+  "phone bug",
+  "barber shop",
+  "brink pain",
+  "candy handle",
+  "handy candle",
+  "cold bake",
+  "jelly beans",
+  "fairy hall",
+  "drunk pool",
+  "pill drugs",
+  "fluids dry",
+  "Harry Potter",
+  "Frodo Baggins",
+  "Fleetwood Mac",
+  "Bob Marley"
+];
+function getRandomSuggestion() {
+  inputElement.value = examples[Math.floor(Math.random() * examples.length)];
+}
+getRandomSuggestion();
+document.getElementById("random").onclick = getRandomSuggestion;

@@ -26,7 +26,7 @@ h2 {
 p {
   margin: 0.5em 0;
 }
-form {
+div {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -76,9 +76,17 @@ button:focus {
   border-color: rgba(0, 0, 0, 0.4);
 }
 #output {
-  margin: 0;
+  margin: 0 0 1rem;
+  text-transform: capitalize;
 }
 #error {
   color: #b71c1c;
   font-size: 0.9rem;
+}
+#random {
+  display: block;
+  margin: 2rem auto;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  padding: 0 0.5rem;
 }

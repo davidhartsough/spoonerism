@@ -6,5 +6,4 @@ A [spoonerism](https://en.wikipedia.org/wiki/Spoonerism) is an error in speech i
 
 TODO:
 
-- Think of great examples. Put 'em in an array. Pull a random example on each page load using the default value of the input.
 - Change things up based on capitalization.
